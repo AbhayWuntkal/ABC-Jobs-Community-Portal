@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+<package name="default" extends="struts-default">
+	
+	<action name="registeruser" class="com.Lithan.Mini3.RegisterAction">
+	<result name="register">ThankYou.jsp</result>
+	</action>
+	
+	<action name="userLogin" class="com.Lithan.Mini3.LoginAction">
+	<result name="login">Dashboard.jsp</result>
+	<result name="backLogin">/Login.jsp</result>
+	</action>
+	
+	<action name="logout" class="com.Lithan.Mini3.LoginAction" method="logout">
+	<result name="logout">/Login.jsp</result>
+	</action>
+	
+	<action name="ViewProfile" class="com.Lithan.Mini3.ReportAction">
+	<result name="REPORT">/ViewProfile.jsp</result>
+	<result name="Failure">/Login.jsp</result>
+	</action>
+	
+	<action name="userUpdate" class="com.Lithan.Mini3.ReportAction"> 
+	<result name="REPORT">/Update.jsp</result>
+	</action>
+	
+	<action name="update" class="com.Lithan.Mini3.UpdateAction">
+	<result name="update" type="chain">ViewProfile</result>
+	</action>
+	
+	<action name="ViewProfile" class="com.Lithan.Mini3.ReportAction">
+	<result name="REPORT">/ViewProfile.jsp</result>
+	</action>
+	
+	<action name="logout" class="com.Lithan.Mini3.LoginAction" method="logout">
+	<result name="logout">/Login.jsp</result>
+	</action>
+	
+	<action name="forgot" class="com.Lithan.Mini3.ForgotAction">
+	<result name="success">/ForgotSuccess.jsp</result>
+	</action>
+    
+    <action name="view" class="com.Lithan.Mini3.ReportView"> 
+    <result name="REPORT">/Admin.jsp</result> 
+    </action> 
+	
+	<action name="deleterecord" class="com.Lithan.Mini3.DeleteAction"> 
+   	<result name="DELETE" type="redirectAction">/joy</result> 
+  	</action>
+  	
+  	<action name="adminLogin" class="com.Lithan.Mini3.AdminLogin">
+	<result name="login" type="redirectAction" >joy</result>
+	<result name="backLogin">/AdminLogin.jsp</result>
+	</action>
+	
+	<action name="joy" class="com.Lithan.Mini3.ReportView"> 
+   	<result name="REPORT">/Admin.jsp</result> 
+  	</action>
+  	
+  	<action name="SearchUser" class="com.Lithan.Mini3.PublicProfile" method="search">
+  	<result name="success">/SearchUser.jsp</result>
+  	</action>
+  	
+  	<action name="UserProfile" class="com.Lithan.Mini3.PublicProfile" method="fullprofile">
+  	<result name="REPORTS">/PublicProfile.jsp</result>
+  	</action>
+  	
+</package>
+</struts>
